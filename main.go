@@ -31,6 +31,7 @@ func main() {
 
 }
 
+/// getArea is a method of the triangle struct that calculates the area of a triangle
 func (t triangle) getArea() float64 {
 	height := 5.5
 	base := 6.2
