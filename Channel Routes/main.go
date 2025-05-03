@@ -22,7 +22,19 @@ func main() {
 		go checkLink(link, c)
 
 	}
-	fmt.Println(<-c)
+
+	//this way we learn that we can send and receive data with channel
+	//we can also use a for loop to receive data from the channel
+	//with the for loop, we iterate over the length of links, and print the data received from the channel
+
+	for i := 0; i < len(link); i++ {
+		go checkLink(<-c, c)
+	}
+
+	//infinite loop
+	// for l := range c {
+	// 	go checkLink(l, c)
+	// }
 }
 
 // you can send and receive data with channel
@@ -30,10 +42,10 @@ func checkLink(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
 		fmt.Println(link, "Might be down!")
-		c <- "Might be down..."
+		c <- link
 		return
 	}
 
 	fmt.Println(link, "is up!")
-	c <- "It is up and running!"
+	c <- link
 }
