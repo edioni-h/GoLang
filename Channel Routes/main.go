@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -27,14 +28,15 @@ func main() {
 	//we can also use a for loop to receive data from the channel
 	//with the for loop, we iterate over the length of links, and print the data received from the channel
 
-	for i := 0; i < len(link); i++ {
-		go checkLink(<-c, c)
-	}
+	// for i := 0; i < len(link); i++ {
+	// 	go checkLink(<-c, c)
+	// }
 
 	//infinite loop
-	// for l := range c {
-	// 	go checkLink(l, c)
-	// }
+	for l := range c {
+		time.Sleep(5 * time.Second)
+		go checkLink(l, c)
+	}
 }
 
 // you can send and receive data with channel
