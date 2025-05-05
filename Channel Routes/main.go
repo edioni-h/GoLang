@@ -34,13 +34,17 @@ func main() {
 
 	//infinite loop
 	for l := range c {
-		time.Sleep(5 * time.Second)
-		go checkLink(l, c)
+		//go checkLink(l, c)
+		go func(link string) {
+			time.Sleep(5 * time.Second)
+			checkLink(link, c)
+		}(l)
 	}
 }
 
 // you can send and receive data with channel
 func checkLink(link string, c chan string) {
+	time.Sleep(5 * time.Second)
 	_, err := http.Get(link)
 	if err != nil {
 		fmt.Println(link, "Might be down!")
