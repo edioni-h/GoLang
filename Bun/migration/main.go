@@ -22,7 +22,7 @@ func init() {
 
 // Migrate runs all migrations
 func Migrate() {
-	db, err := main.DBConn()
+	db, err := database.dbconnection()
 	if err != nil {
 		log.Fatal(err)
 	}

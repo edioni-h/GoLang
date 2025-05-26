@@ -16,14 +16,14 @@ func dbconnection() (*bun.DB, error) {
 	sqldb := sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(dsn)))
 	db := bun.NewDB(sqldb, pgdialect.New())
 	//
-	if err := checkConn(db); err != nil {
+	if err := CheckConn(db); err != nil {
 		return nil, err
 	}
 
 	return db, nil
 }
 
-func checkConn(db *bun.DB) error {
+func CheckConn(db *bun.DB) error {
 	var n int
 	return db.NewSelect().ColumnExpr("1").Scan(context.Background(), &n)
 }
