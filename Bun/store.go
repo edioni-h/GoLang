@@ -10,7 +10,8 @@ type memberStore struct {
 	db *bun.DB
 }
 
-func newUserStore(db *bun.DB) *memberStore {
+// NewUserStore creates a new instance of memberStore.
+func NewUserStore(db *bun.DB) *memberStore {
 	return &memberStore{db: db}
 }
 

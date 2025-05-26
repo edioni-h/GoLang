@@ -1,4 +1,4 @@
-package database
+package main
 
 import (
 	"context"
@@ -9,13 +9,13 @@ import (
 	"github.com/uptrace/bun/driver/pgdriver"
 )
 
-func dbconnection() (*bun.DB, error) {
+func DBconnection() (*bun.DB, error) {
 	// Initialize the database connection here
 	// For example, using PostgreSQL:
 	dsn := "postgres://postgres:edioni03@localhost:5432/Studying?sslmode=disable"
 	sqldb := sql.OpenDB(pgdriver.NewConnector(pgdriver.WithDSN(dsn)))
 	db := bun.NewDB(sqldb, pgdialect.New())
-	//
+
 	if err := CheckConn(db); err != nil {
 		return nil, err
 	}

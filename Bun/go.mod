@@ -1,4 +1,4 @@
-module github.com/uptrace/latest
+module github.com/edioni-h/GoLang
 
 go 1.24.2
 
@@ -9,8 +9,11 @@ require (
 )
 
 require (
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/puzpuzpuz/xsync/v3 v3.5.1 // indirect
+	github.com/spf13/cobra v1.9.1 // direct
+	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect

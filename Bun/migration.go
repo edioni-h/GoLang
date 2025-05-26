@@ -1,4 +1,4 @@
-package migrations
+package main
 
 import (
 	"context"
@@ -9,7 +9,6 @@ import (
 	"github.com/uptrace/bun/migrate"
 )
 
-//go:embed *.sql
 var sqlMigrations embed.FS
 
 var Migrations = migrate.NewMigrations()
@@ -22,7 +21,7 @@ func init() {
 
 // Migrate runs all migrations
 func Migrate() {
-	db, err := database.dbconnection()
+	db, err := DBconnection()
 	if err != nil {
 		log.Fatal(err)
 	}
