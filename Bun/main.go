@@ -47,12 +47,12 @@ func main() {
 	// 	panic(err)
 	// }
 
-	db, err := DBconnection()
+	db, err := dbconnection()
 	if err != nil {
 		fmt.Println("Database connection error:", err)
 		return
 	}
-	storedMembers := NewUserStore(db)
+	storedMembers := newUserStore(db)
 
 	// member, err := storedMembers.getByID(ctx, 1)
 	// if err != nil {
